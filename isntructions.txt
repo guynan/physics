@@ -1,4 +1,0 @@
-git pull ( dont need directory)
-git add ( filename with extension)
-git commit ( add some commentsw on what i ve done)
-git push 
