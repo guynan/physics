@@ -1,4 +1,11 @@
 git pull ( dont need directory)
+
 git add ( filename with extension)
 git commit ( add some commentsw on what I've done)
 git push 
+
+# To check what files you need to commit or what you have changed
+git status
+
+# To check the most recent commits you can use
+git log
