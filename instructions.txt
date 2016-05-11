@@ -9,3 +9,12 @@ git status
 
 # To check the most recent commits you can use
 git log
+
+Also! I think your console dumps you into a vim session for your commit
+messages. So you can either circumvent this by typing 
+
+git commit -m "Your commit message"
+
+Or you can just use the vim session by typing 'i' to enter insert mode,
+type your commit message, press escape, then type ':wq'; where the 'w'
+stands for 'write' and the 'q' stands for quit.
