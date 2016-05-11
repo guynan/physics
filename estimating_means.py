@@ -1,6 +1,7 @@
 """
 
 Estimating means from experimental data
+This one is done
 
 """
 
@@ -23,8 +24,30 @@ def part_one():
     """
     plot(z)
     show()
-    
-    ym = cumsum(y)/(arrange(y.size) + 1) # Q2
-    
 
-part_one()
+#part_one()
+
+def part_two():
+    
+    for i in range(20):
+        z = normal(15,3,200)
+        zm = cumsum(z)/(arange(z.size) + 1)
+
+        plot(zm)
+
+    n = arange(1,200)
+    su = 15+2/sqrt(n)
+    sl = 15-2/sqrt(n)
+    plot(su, 'b')
+    plot(sl, 'b')
+    su = 15+4/sqrt(n)
+    sl = 15-4/sqrt(n)
+    plot(su,'r')
+    plot(sl,'r')
+    
+    show()
+    
+    return    
+
+part_two()
+
