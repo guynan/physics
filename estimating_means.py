@@ -26,6 +26,5 @@ def part_one():
     
     ym = cumsum(y)/(arrange(y.size) + 1) # Q2
     
-    return None
 
 part_one()
