@@ -38,5 +38,6 @@ print(lregress(x,y))
 
 """
 from straight_line_plots import lregress
+from straight_line_plots import import_test_data
 
 """
