@@ -26,20 +26,35 @@ class ImportTest():
     x,y = data(filename)
 
 
-def main():
+class Regress(ImportTest):
 
     x = ImportTest.x
     y = ImportTest.y
 
-    def func(x, a, b):
-        return a*x + b
-
-    def lregress(x, y):
-        a,b = curve_fit(func, x, y)[0] 
+    def lregress(x,y):
+        run_sum = []
+        n = 0
+        for i in x:
+            run_sum.append(i * float(y[n]))
+            n += 1 
+        sum_x_y = sum(run_sum)        
+        
+        tot = []
+        for v in x:
+            tot.append(v**2)
+        A = column_stack((
+                    [sum(tot),sum(x)],
+                    [sum(x),len(x)]))
+        b = [sum_x_y,sum(y)]
+        a,b = dot(inv(A),b)
 
         return [b,a]
+       
+    result = lregress(x,y) 
 
-    print(lregress(x, y)) 
+class Main():
 
-main()
-
+    if __name__ == "__main__":
+        print(Regress.result) 
+        
+Main()
