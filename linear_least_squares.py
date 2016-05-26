@@ -7,17 +7,30 @@ import numpy
 import math
 from pylab import *
 import matplotlib.pyplot as plt
-from straight_line_plots import import_test_data
+
+def data(filename):
+    file_object = (open(filename, 'r')).readlines()
+    xdata = []
+    ydata = [] 
+    for line in file_object:
+        line = line.split(";")
+        xdata.append(float(line[0]))
+        ydata.append(float(line[1]))
+    return xdata,ydata
 
 def mregress(x,y):
-    A = column_stack((array(x),array(y)))
-    result = solve(dot(transpose(A),A),dot(transpose(A),y))
-    return result
+    n = 0
+    col_2 = []
+    while n < len(x):
+        col_2.append(1)
+        n +=1
+    A = column_stack((array(x),array(col_2)))
+    b,a = solve(dot(transpose(A),A),dot(transpose(A),y))
+    return [b,a]
 
 def main():
     filename = 'test_data.txt'
-    x,y = import_test_data(filename)
-
+    x,y = data(filename)
     print(mregress(x,y))
 
 main()
