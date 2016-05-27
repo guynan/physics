@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 
-class ImportTest():
+class ImportTest:
    
     def data(filename):
         file_object = (open(filename, 'r')).readlines()
@@ -52,9 +52,18 @@ class Regress(ImportTest):
        
     result = lregress(x,y) 
 
-class Main():
+class Main:
 
     if __name__ == "__main__":
-        print(Regress.result) 
         
+        x = array([ImportTest.x])
+        y = array([ImportTest.y])
+        xd = ImportTest.x
+        yd = ImportTest.y
+        b,a = Regress.result 
+        eq = a*x +b
+        plot(x,eq,'co')
+        plot(xd,yd)
+        print(b,a) 
+        show() 
 Main()
