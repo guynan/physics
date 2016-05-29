@@ -25,7 +25,7 @@ def mregress(x,y):
         col_2.append(1)
         n +=1
     A = column_stack((array(x),array(col_2)))
-    b,a = solve(dot(transpose(A),A),dot(transpose(A),y))
+    a,b = solve(dot(transpose(A),A),dot(transpose(A),y))
     return [b,a]
 
 def main():
