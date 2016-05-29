@@ -21,15 +21,18 @@ In turn, this makes sigma**2(a) = delta ** -1 * mu
 """
 
 def cerror(x,y,sy):
-    mu,phi,delta = [],[],[]
+    mu,phi,gamma,delta = [],[],[],[]
     n = 0
     for i in x:
-        mu.append((i**2)/ float(sy[n])**2)
-        phi.append(float(sy[n])**-2)
+        sigma_sq = float(sy[n])**2
+        mu.append((i**2)/sigma_sq)
+        phi.append(1/sigma_sq)
+        gamma.append(i/sigma_sq)
         n +=1
     phi = float(sum(phi))
     mu = float(sum(mu))
-    delta = abs((mu * phi) - (mu **2))
+    gamma = float(sum(gamma))
+    delta = ((mu * phi) - (gamma **2))
     sa = ((delta ** -1) * mu) ** 0.5
     sb = ((delta ** -1) * phi) ** 0.5
     
