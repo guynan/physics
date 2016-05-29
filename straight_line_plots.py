@@ -32,16 +32,14 @@ class Regress(ImportTest):
     y = ImportTest.y
 
     def lregress(x,y):
-        run_sum = []
+        run_sum,tot = [],[]
         n = 0
         for i in x:
             run_sum.append(i * float(y[n]))
+            tot.append(i**2)
             n += 1 
         sum_x_y = sum(run_sum)        
         
-        tot = []
-        for v in x:
-            tot.append(v**2)
         A = column_stack((
                     [sum(tot),sum(x)],
                     [sum(x),len(x)]))
@@ -64,6 +62,6 @@ class Main:
         eq = a*x +b
         plot(x,eq,'co')
         plot(xd,yd)
-        print(b,a) 
+        print([b,a]) 
         show() 
 Main()
