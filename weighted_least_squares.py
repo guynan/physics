@@ -12,11 +12,8 @@ class Regress:
 
 
     def wregress(x,y,sy):
-        sum_x_y = []
-        sum_x_sy2 = []
-        sum_x2_sy2 = []
-        sy_inv = []
-        sum_y_sy2 = []
+        sum_x_y,sum_x_sy2,sum_x2_sy2,\
+                sy_inv,sum_y_sy2 = [],[],[],[],[]
         n = 0
         for i in x:
             sum_x_sy2.append(i* (float(sy[n])**-2))
